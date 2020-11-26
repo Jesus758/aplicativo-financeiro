@@ -1,0 +1,39 @@
+.row {
+    margin-top: 60px;
+}
+
+.fixed-bottom {
+    display: flex;
+    width: 100vh;
+    color: rgb(231, 230, 230);
+}
+
+img {
+    width: 18rem;
+    height: 15rem;
+}
+
+.card {
+    margin-left: 60px;
+    margin-right: 10px;
+    box-shadow:  0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    background-color: rgb(226, 203, 223);
+}
+
+.btn:hover {
+    background-color: rgb(109, 103, 96);
+    border: transparent;
+}
+
+footer a {
+    margin-left: 30px;
+    padding: 15px;
+}
+
+.navbar-nav {
+    margin-left: 50rem;
+}
+

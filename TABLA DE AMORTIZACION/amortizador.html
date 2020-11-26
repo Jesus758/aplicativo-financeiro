@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMORTIZADOR</title>
+    <style>
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header-right {
+  float: right;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <a href="#default" class="logo">CompanyLogo</a>
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+
+<div id="uno">
+<h4>Cual es el valor del prestamo que necesita?</h4>
+<input type="number" id="monto" name="cantidad">
+</div>
+
+<div id="dos">
+    <h4>Cuanto Plazo desea disponer para pagar?</h4>
+    <select id="plazos">
+        <option value="" placeholder="Escoja un plazo">Escoja un valor</option>
+        <option id="plazo-corto" value="12">12 meses</option>
+        <option id="plazo-medio" value="18">18 meses</option>
+        <option id="plazo-24" value="24">24 meses</option>
+        <option id="plazo-36" value="36">36 meses</option>
+        <option id="plazo-48" value="48">Necestio mas tiempo</option>
+      </select>
+</div>
+
+<div id="tres">
+    <h4>Tipo de Trabajo</h4>
+    <form>
+        <input type="checkbox" id="Trabajo" name="CLT" value="CLT">
+        <label for="tipodetrabajo">Contratado</label><br>
+        <input type="checkbox" id="Trabajo" name="PJ" value="PJ">
+        <label for="tipodetrabajo">Autonomo</label><br>
+    </form>
+</div>
+
+<div id="cuatro">
+
+<h4>Ingresos Estimados de ud o su Organización</h4>
+
+<form>    
+<label for="salario">Ingresos Totales Estimado</label>
+<select id="rangosalario">
+  <option value="1000">minimo</option>
+  <option value="3000">desde 1001 hasta 3000 R$</option>
+  <option value="5000">desde 3001 hasta 5000 R$</option>
+  <option value="10000">mas de 5001 R$</option>
+</select>
+</form>
+
+</div>
+<br><br>
+<div id="btn-box">
+    <button id="btnCalculo" type="button">Calcular</button>
+</div>
+
+<div id="vacio"></div>
+
+<script>
+//variables basicas para el trabajo
+var salario = document.getElementById('rangosalario');
+var trabajo = document.getElementById('Trabajo');
+var periodo = document.getElementById('plazos');
+var boton = document.querySelector('#btnCalculo');
+var emptybox = document.querySelector('#vacio');
+//var risk;
+var RiesgoPer;
+var valorPagar;
+var valorPedido = document.getElementById('monto');
+
+//funcion de determinacion del salario segun la opcion
+function rangeSal() {
+  var x = document.getElementById("rangosalario").selectedIndex;
+  var y = document.getElementById("rangosalario").options;
+  return valor = y[x].value;
+  console.log('valor', valor);
+}
+//funcion de determinacion del tipo de trabajo
+function tipoT() {
+var trab = document.forms[0];
+for (var i=0;i<trab.length; i++) {
+    if (trab[i].checked) {
+        return regimen = trab[i].value;
+        console.log('regimen', regimen);
+    }
+}
+}
+//funcion para la determinacion del riesgo
+function riesgo(salario, trabajo) {
+let RiesgoPer;
+let risk;
+if (trabajo === 'CLT') {
+switch (salario) {
+       case '1000':
+       risk = 'ALTO';
+       //console.log('clt-1000', risk);    
+       texto = 'ud es una persona de riesgo Alto';
+       break;
+       case '3000':
+           risk = 'MEDIO';
+           //console.log('clt - 3000' , risk);    
+           texto = 'ud es una persona de riesgo Medio';
+           break;
+        case '5000':
+            risk = 'BAJO';
+            //console.log('clt - 5000' , risk);    
+            texto = 'ud es una persona de riesgo Bajo';
+            break;
+        case '10000':
+        risk = 'BAJO';
+        //console.log('clt - 10000' ,  risk);    
+        texto = 'ud es una persona de riesgo Bajo';
+        break;
+   }
+   RiesgoPer = risk;
+   console.log(RiesgoPer);
+   //console.log('clt-riesgo', risk);
+}
+if (trabajo === 'PJ') {
+     switch (salario) {
+        case '1000':
+           risk = 'MUY ALTO';    
+           //console.log('pj-1000', risk);    
+           texto = 'ud es una persona de riesgo Muy Alto';
+           break;
+       case '3000':
+           risk = 'ALTO';
+           //console.log('pj-3000', risk);    
+           texto ='ud es una persona de riesgo Alto';
+           break;
+        case '5000':
+            risk = 'MEDIO-ALTO';
+            //console.log('pj-5000', risk);    
+            texto = 'ud es una persona de riesgo Medio-Alto';
+            break;
+        case '10000':
+        risk = 'MEDIO-BAJO';
+        //console.log('pj-10000',risk);    
+        texto = 'ud es una persona de riesgo Medio-Bajo';
+        break;
+   }
+   RiesgoPer = risk;
+   console.log(RiesgoPer);
+  }
+return RiesgoPer;
+
+}
+
+
+
+//Al tener el nivel de riesgo de la persona, se toma el plazo, y se calcula el valor final segun el porcentaje a emplear
+//criterio tomado para el porcentaje final:
+//Riesgo MUY ALTO | 45%/año \\ ALTO | 35%/año \\ MEDIO-ALTO | 30%/año \\ MEDIO | 25%/año \\ MEDIO-BAJO | 20%/año \\ BAJO | 15%/año
+
+
+function valoraPagar(numero, RiesgoPer, periodo) {
+  let valorPagar;
+  let tasa;
+  switch(RiesgoPer){
+    case 'ALTO':
+      tasa = 35;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+    case 'MUY ALTO':
+      tasa = 45;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+    case 'MEDIO-ALTO':
+      tasa = 30;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+    case 'MEDIO':
+      tasa = 25;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+    case 'MEDIO-BAJO':
+      tasa = 20;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+    case 'BAJO':
+      tasa = 35;
+      valorPagar = numero*((1+(tasa/100))**(periodo/12));
+      break;
+  }
+  return valorPagar;
+  console.log(valorPagar);
+
+  }
+
+//valoraPagar(valorPedido, RiesgoPer, periodo);
+//tabla de amortizacion
+
+function tablaAmortizacion (valorPagar, periodo) {
+let valorAdeudado; //el monto despues del descuento mensual
+let valorMensual = valorPagar/periodo;
+let Tabla = [ ];
+
+for (var i=0; i < periodo; i++) {
+    valorAdeudado = valorPagar - (i)*valorMensual;
+    valorResto = valorAdeudado - valorMensual;
+    const Parcela = [
+      {
+        Cuota: (i+1),
+        Adeudado: valorAdeudado,
+        Mensual: valorMensual,
+        Resto: valorResto,
+      }
+    ]
+    
+    Tabla = [...Tabla, Parcela];
+    //array con esas condiciones 
+   }
+   return Tabla;
+
+   //console.log(Tabla);
+   
+//return valorAdeudado; //aqui debe retornar uma tabela.
+}
+
+
+
+boton.addEventListener("click", () => {
+    rangeSal();
+    tipoT();
+    let uno = riesgo(rangeSal(), tipoT()); // Esra funcion genera la variable RiesgoPer
+    
+    const info1 = document.createElement('h2');
+    info1.innerText = `Su nivel de Riesgo es ${uno}`
+    emptybox.appendChild(info1);
+    let dos = valoraPagar(valorPedido.value, uno, periodo.value);
+   
+    const info2 = document.createElement('h2');
+    info2.innerText = `El monto total a pagar que le corresponde es ${dos}`
+    emptybox.appendChild(info2);
+    //tablaAmortizacion(dos, periodo.value);
+    let Matriz = tablaAmortizacion(dos, periodo.value);
+    console.log(Matriz[1].Cuota);
+    console.log(Matriz.length);
+   
+    Matriz.forEach( parcelado => {
+      const info3 = document.createElement('tr');   
+      info3.innerHTML += `
+      <td>${parcelado[0].Cuota}</td>
+      <td>${parcelado[0].Adeudado}</td>
+      <td>${parcelado[0].Mensual}</td>
+      <td>${parcelado[0].Resto}</td>
+      `
+      emptybox.appendChild(info3);
+    });
+});
+       
+</script>
+
+</body>
+</html>
