@@ -1,0 +1,76 @@
+* {
+    font-size: 15px;
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+    color: rgb(70, 4, 4);
+    
+}
+
+
+.precio-final {
+    font-size: 15px;
+    text-align: center;
+    background-color: rgb(136,136,155);
+}
+
+#btn-Variable {
+    padding: 10px;
+    margin: 15px;
+    width: 250px;
+}
+
+#Precio {
+    font-size: 20px;
+    width: 400px;
+    height: 100px;
+    background-color: rgb(136,136,155);
+    
+}
+
+.parrafo1 {
+    font-size: 9px;
+    text-align: justify;
+    }
+
+.container-fluid {
+    border: 1px solid black;
+    background-color: rgb(136, 136, 155);
+    width: 400px;
+    height: 600px;
+    align-content: space-around;
+    border-radius: 15px;
+    box-shadow:  0 0 10px #000000;
+    margin: 10vh;
+    margin-left: 30rem;
+}
+
+h4 {
+    padding: 10px;
+    margin: 5px;
+}
+
+#FixedCosts, #VbleCosts, #AddCosts, #Profits {
+    margin: 2rem;
+    text-align: center;
+    background-color: rgb(136,136,155);
+}
+
+label {
+    font-size: 17px;
+    background-color: rgb(136,136,155);
+    color: white;
+    font-family: sans-serif;
+}
+
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+
+footer {
+    width: 500px;
+    height: 35px;
+    margin-left: 28rem;
+    
+}
