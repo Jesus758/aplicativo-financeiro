@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRECIFICADOR</title>
+</head>
+<body>
+<h1>PRACTICA DE PRECIFICADOR</h1>
+
+<div id="FixedCosts">
+    <h4>Gastos Fijos</h4>
+    <input type="number" id="FxdCosts" name="gastosFijos">
+  
+</div>
+
+<div id="VbleCosts">
+    <h4>Gastos Variables</h4>
+    <input type="number" id="VarCosts" name="gastosFijos">
+    
+</div>
+
+<div id="AddCosts">
+    <h4>Porcentaje de Comisión por Tarjeta de Credito</h4>
+    <input type="number" id="VarCosts" name="gastosAdicionales">
+</div>
+
+<div id="Profits">
+    <h4>Valor del Margen de Ganancia Deseado</h4>
+    <input type="number" id="Profitval" name="ganancias">
+</div>
+
+
+<button id="btn-Variable" type="button">Agregar</button>
+
+<div id="Precio">
+    <h4>Precio Estimado para tu ganacia</h4>
+    <div id="Valor-total"></div>
+    
+</div>
+
+
+
+
+<script>
+
+const btnVariable = document.querySelector('#btn-Variable');
+const Gvariables = document.querySelector('#VbleCosts input');
+const GComision = document.querySelector('#AddCosts input');
+const GMargen = document.querySelector('#Profits input');
+const Bloco = document.querySelector('#Valor-total');
+
+btnVariable.addEventListener('click', calculoPrecio);
+
+
+function calculoPrecio() {
+    const var1 = Gvariables.value;
+    const var2 = GComision.value;
+    const var3 = GMargen.value;
+    const PrecioTotal = document.createElement('p');
+    var Precio;
+
+    Precio = (var1/(100-var2-var3))*100;
+    PrecioTotal.textContent = `${Precio.toFixed(2)}`;
+    PrecioTotal.classList.add('style', 'font-size: 35px;')
+    
+    Bloco.appendChild(PrecioTotal);
+
+
+
+    console.log(PrecioTotal);
+    console.log(Precio);
+    
+    console.log('quiero calcular precio');
+    console.log(Gvariables.value);
+    console.log(GComision.value);
+    console.log(GMargen.value);
+       
+};
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
