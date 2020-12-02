@@ -1,0 +1,42 @@
+*, body {
+    background-color: rgb(243, 239, 239)
+}
+
+.error {
+    background-color: red;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 15x;
+    max-width: 400px;;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+.tweet-box {
+    padding: 15px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+
+}
+
+.borrar-tweet {
+    float: right;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+#principal {
+    padding: 15px;
+    margin: 20px;
+
+}
+
+#texto1 {
+    font-size: 15px;
+    text-decoration:cursive
+}
