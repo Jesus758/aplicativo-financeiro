@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./precio.css">
     <title>PRECIFICADOR</title>
 </head>
 <body>
-<h1>PRACTICA DE PRECIFICADOR</h1>
+<h1>PRECIFICADOR</h1>
 
-<div id="FixedCosts">
-    <h4>Gastos Fijos</h4>
-    <input type="number" id="FxdCosts" name="gastosFijos">
-  
+
+<div class="container-fluid">
+
+
+
+
+            <div id="FixedCosts">
+                <Label>Gastos Fijos</label><br>
+                <input type="number" id="FxdCosts" name="gastosFijos">
+            </div>
+            <div id="VbleCosts">
+                <Label>Gastos Variables</Label><br>
+                <input type="number" id="VarCosts" name="gastosFijos">
+            </div>
+            <div id="AddCosts">
+                <label>Porcentaje de Comisión por Tarjeta de Credito</label><br>
+                <input type="number" id="VarCosts" name="gastosAdicionales">
+            </div>
+            <div id="Profits">
+                <label>Valor del Margen de Ganancia Deseado</label><br>
+                <input type="number" id="Profitval" name="ganancias">
+            </div>
+                     
+            <button id="btn-Variable" type="button">Calcular</button>
+              
+            <div id="Precio">
+                <label>Precio Estimado para tu ganacia</label>
+                <div id="Valor-total"></div>
+            </div>
+           
 </div>
 
-<div id="VbleCosts">
-    <h4>Gastos Variables</h4>
-    <input type="number" id="VarCosts" name="gastosFijos">
-    
-</div>
-
-<div id="AddCosts">
-    <h4>Porcentaje de Comisión por Tarjeta de Credito</h4>
-    <input type="number" id="VarCosts" name="gastosAdicionales">
-</div>
-
-<div id="Profits">
-    <h4>Valor del Margen de Ganancia Deseado</h4>
-    <input type="number" id="Profitval" name="ganancias">
-</div>
 
 
-<button id="btn-Variable" type="button">Agregar</button>
 
-<div id="Precio">
-    <h4>Precio Estimado para tu ganacia</h4>
-    <div id="Valor-total"></div>
-    
-</div>
 
+<footer>
+    <p class="parrafo1">
+        El aplicativo fue diseñado para ser aplicado en Reales Brasileros, bajo los criterios del SEBRAE - SP, unidad publica que se encarga de asesorar a empresas emprendedoras y de experiencia en la organizacion de sus negocios. Por lo tanto fueron tomados sus criterios simples para hacer una estimación de un valor de precios, basado en que el usuario conoce sus gastos fijos, maneja ya sus gastos variable,s ha definido su margen de ganacia y sabe las tasas que pagará por el uso de instrumentos de pago como bancos y servicios similares 
+    </p>
+   
+</footer>
 
 
 
@@ -61,31 +73,18 @@ function calculoPrecio() {
     var Precio;
 
     Precio = (var1/(100-var2-var3))*100;
-    PrecioTotal.textContent = `${Precio.toFixed(2)}`;
-    PrecioTotal.classList.add('style', 'font-size: 35px;')
+    PrecioTotal.textContent = `El pecio que te recomendamos para tu producto y/o Servios es: ${Precio.toFixed(2)}`;
+    PrecioTotal.classList.add('precio-final');
     
     Bloco.appendChild(PrecioTotal);
 
+    if (Bloco.firstChild) {
+       btnVariable.disabled = true;
+    }
 
 
-    console.log(PrecioTotal);
-    console.log(Precio);
     
-    console.log('quiero calcular precio');
-    console.log(Gvariables.value);
-    console.log(GComision.value);
-    console.log(GMargen.value);
-       
-};
-
-
-
-
-
-
-
-
-
+       };
 
 </script>
 </body>
