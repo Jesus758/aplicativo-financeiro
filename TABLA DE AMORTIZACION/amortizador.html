@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./amortizador.css">
     <title>AMORTIZADOR</title>
     <style>
 .header {
@@ -35,65 +36,85 @@
 
 <body>
 
-    <div class="header">
+<div id="fotoInstrucciones">
+  <img src="./5.jpg" alt="Manual de Instrucciones">
+</div>
+
+<div id="HowToUse" class="active">
+<p>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam voluptatem natus laborum mollitia, eius debitis suscipit qui error, adipisci corporis numquam aspernatur labore hic, esse explicabo reprehenderit cumque quo beatae.
+</p>
+</div>
+    <!-- <div class="header">
         <a href="#default" class="logo">CompanyLogo</a>
         <div class="header-right">
           <a class="active" href="#home">Home</a>
           <a href="#contact">Contact</a>
           <a href="#about">About</a>
         </div>
-      </div>
+      </div> -->
 
-<div id="uno">
-<h4>Cual es el valor del prestamo que necesita?</h4>
-<input type="number" id="monto" name="cantidad">
-</div>
-
-<div id="dos">
-    <h4>Cuanto Plazo desea disponer para pagar?</h4>
-    <select id="plazos">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-12">
+    <form id="form01">
+      <label>Cual es el valor del prestamo que necesita?</label><br>
+      <input type="number" id="monto" name="cantidad"><br>
+      <hr>
+      <label>Cuanto Plazo desea disponer para pagar?</label><br>
+      <select id="plazos">
         <option value="" placeholder="Escoja un plazo">Escoja un valor</option>
         <option id="plazo-corto" value="12">12 meses</option>
         <option id="plazo-medio" value="18">18 meses</option>
         <option id="plazo-24" value="24">24 meses</option>
         <option id="plazo-36" value="36">36 meses</option>
         <option id="plazo-48" value="48">Necestio mas tiempo</option>
-      </select>
-</div>
-
-<div id="tres">
-    <h4>Tipo de Trabajo</h4>
-    <form>
+      </select><br>
+      <hr>
+      <label>Tipo de Trabajo<label><br>
+      <form>
         <input type="checkbox" id="Trabajo" name="CLT" value="CLT">
         <label for="tipodetrabajo">Contratado</label><br>
         <input type="checkbox" id="Trabajo" name="PJ" value="PJ">
         <label for="tipodetrabajo">Autonomo</label><br>
-    </form>
+      </form>
+      <hr>
+      <div>
+      <h4>Ingresos Estimados de ud o su Organización</h4><br>
+      <form>    
+      <label for="salario">Ingresos Totales Estimado</label><br>
+      <select id="rangosalario">
+      <option value="1000">minimo</option>
+      <option value="3000">desde 1001 hasta 3000 R$</option>
+      <option value="5000">desde 3001 hasta 5000 R$</option>
+      <option value="10000">mas de 5001 R$</option>
+      </select>
+      <hr>
+      </form>
+      </div>
+    </form><br><br>
+    <div id="btn-box">
+      <button id="btnCalculo" type="button">Calcular</button>
+    </div>
+
+    <div id="vacio"></div>
+
+  </div>
 </div>
 
-<div id="cuatro">
 
-<h4>Ingresos Estimados de ud o su Organización</h4>
+</div>
 
-<form>    
-<label for="salario">Ingresos Totales Estimado</label>
-<select id="rangosalario">
-  <option value="1000">minimo</option>
-  <option value="3000">desde 1001 hasta 3000 R$</option>
-  <option value="5000">desde 3001 hasta 5000 R$</option>
-  <option value="10000">mas de 5001 R$</option>
-</select>
-</form>
+
 
 </div>
 <br><br>
-<div id="btn-box">
-    <button id="btnCalculo" type="button">Calcular</button>
-</div>
 
-<div id="vacio"></div>
+
 
 <script>
+
+//Variables en general
 //variables basicas para el trabajo
 var salario = document.getElementById('rangosalario');
 var trabajo = document.getElementById('Trabajo');
@@ -104,7 +125,13 @@ var emptybox = document.querySelector('#vacio');
 var RiesgoPer;
 var valorPagar;
 var valorPedido = document.getElementById('monto');
+var btnInstruccion = document.querySelector('#fotoInstrucciones');
+var blocoInst = document.querySelector('#HowToUse');
 
+
+
+
+//Funcoes para aplicar
 //funcion de determinacion del salario segun la opcion
 function rangeSal() {
   var x = document.getElementById("rangosalario").selectedIndex;
@@ -255,6 +282,7 @@ for (var i=0; i < periodo; i++) {
 }
 
 
+// Listener para o font-end
 
 boton.addEventListener("click", () => {
     rangeSal();
@@ -274,17 +302,39 @@ boton.addEventListener("click", () => {
     console.log(Matriz[1].Cuota);
     console.log(Matriz.length);
    
+    const infoTabla = document.createElement('tr');
+      infoTabla.innerHTML += `
+      <th>No Cuota</th>
+      <th>Monto de Deuda (R$) </th>
+      <th>Valor de Cuota Mensual (R$) </th>
+      <th>Valor de Deuda Restante (R$) </th> 
+      `;
+      emptybox.appendChild(infoTabla);
+
     Matriz.forEach( parcelado => {
+      
       const info3 = document.createElement('tr');   
       info3.innerHTML += `
-      <td>${parcelado[0].Cuota}</td>
-      <td>${parcelado[0].Adeudado}</td>
-      <td>${parcelado[0].Mensual}</td>
-      <td>${parcelado[0].Resto}</td>
+      <td>${parcelado[0].Cuota.toFixed(2)}</td>
+      <td>${parcelado[0].Adeudado.toFixed(2)}</td>
+      <td>${parcelado[0].Mensual.toFixed(2)}</td>
+      <td>${parcelado[0].Resto.toFixed(2)}</td>
       `
       emptybox.appendChild(info3);
     });
 });
+
+btnInstruccion.onclick = () => {
+  
+      blocoInst.classList.remove('active');
+      blocoInst.classList.add('inicial');
+    
+   
+    //blocoInst.classList.remove('inicial');
+      //blocoInst.classList.add('active');
+      
+    }
+  
        
 </script>
 

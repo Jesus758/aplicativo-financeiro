@@ -3,12 +3,11 @@
     text-align: center;
     background-color: rgb(243, 243, 243);
     color: rgb(70, 4, 4);
-    
 }
 
 
 .precio-final {
-    font-size: 15px;
+    font-size: 25px;
     text-align: center;
     background-color: rgb(136,136,155);
 }
@@ -41,7 +40,8 @@
     border-radius: 15px;
     box-shadow:  0 0 10px #000000;
     margin: 10vh;
-    margin-left: 30rem;
+    margin-left: 27rem;
+    margin-top: 33px;
 }
 
 h4 {
@@ -66,6 +66,7 @@ label {
 h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 35px;
+    margin-left: -100px;
 }
 
 footer {
@@ -73,4 +74,74 @@ footer {
     height: 35px;
     margin-left: 28rem;
     
+}
+
+.instrucciones {
+    display: block;
+    position: sticky;
+    transform: translateX(-450px);
+    transition-timing-function: ease-out;
+    width: 350px;
+    text-align: justify;
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+
+
+.activo {
+    display: block;
+    position: absolute;
+    transform: translateX(0px);
+    transition-timing-function: ease-in;
+    transition-delay: .5s;
+    width: 350px;
+    top: 0;
+    text-align: justify;
+    border: 1px solid black;
+    
+}
+
+.activo p{
+    border: 1px solid blue;
+    border-radius: 15px;
+    width: 275px;
+    margin: 30px;
+    font-size: 15px;
+
+}
+
+
+.btnInstrucciones {
+    position: relative;
+    top: 0px;
+    margin-left: -100px;
+}
+
+@media screen and (max-width: 578px) {
+
+    .container-fluid {
+        margin-left: 80px;
+    }
+
+    footer {
+        margin-left: 80px;
+        width: 400px;
+    }
+
+    h1{
+        margin-left: 0px;
+    }
+
+    .btnInstrucciones {
+        margin-left: 400px;
+    }
+
+    .instrucciones p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        position: relative;
+    }
+
+
 }

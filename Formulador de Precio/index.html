@@ -8,13 +8,12 @@
 </head>
 <body>
 <h1>PRECIFICADOR</h1>
+<button class="btnInstrucciones">
+    Ver Instrucciones
+</button>
 
 
 <div class="container-fluid">
-
-
-
-
             <div id="FixedCosts">
                 <Label>Gastos Fijos</label><br>
                 <input type="number" id="FxdCosts" name="gastosFijos">
@@ -43,6 +42,25 @@
 
 
 
+<div class="instrucciones">
+    <p>Como hacer uso del aplicativo</p>
+    <p>
+        <b>Gastos Fijos:</b> Considere este valor como una referencia. usted va a escribir aqui el monto en su moneda local de cuales son los gastos fijos para la venta de su producto o su servicio. Por ejemplo:
+        alquileres, servicios, empleados, y otros gastos similares. Considere una referencia de 1 mes.
+    </p>
+    <p>
+        <b>Gastos variables:</b> Considere este tipo de gastos, aquellos que depende del volumen de productos o de la cantidad de servicios que usted presta durante un mes. Por ejemplo si usted fabrica un paquete de vasos plasticos, cuanta materia prima debe comprar en este mes para producir la cantidad de paquetes que tiene estimada.
+    </p>
+    <p>
+        <b>Porcentaje de la Comision de la Tarjeta de Crédito:</b> En este caso, debe considerar que si realiza el pago con alguna tarjeta de crédito para solventar gastos fijos o variables, este instrumento le va a cobrar un porcentaje. Si ese es el caso, que hace uso de esta tarjeta para solventar algunos gastos, debe incluirlo en el precio. Debe averiguar con su banco  cual es el porcentaje de la tasa de credito que le es cobrado cuando utiliza su tarjeta de crédito. En caso de no usarla en ningun momento, el valor a indicar en el aplicativo debe ser 0.
+    </p>
+    <p>
+        <b>Valor del Margen de Ganancia Deseada:</b> Este es un valor que depende de una decision propia, y de las caracteristicas y diferenciales de su producto y de la competencia de mercado, ya que es el margen de ganancia que usted espera obtener sobre la venta de su producto al publico en general. Se recomienda un valor maximo de 30%, sin embargo existen algunos productos que varian este porcentaje.
+    </p>
+</div>
+
+
+
 
 
 <footer>
@@ -61,8 +79,23 @@ const Gvariables = document.querySelector('#VbleCosts input');
 const GComision = document.querySelector('#AddCosts input');
 const GMargen = document.querySelector('#Profits input');
 const Bloco = document.querySelector('#Valor-total');
+const btninstrucciones = document.querySelector('.btnInstrucciones');
+const instrucciones = document.querySelector('.instrucciones');
+
 
 btnVariable.addEventListener('click', calculoPrecio);
+
+btninstrucciones.addEventListener('click', () => {
+ 
+    if(instrucciones.classList.contains('instrucciones')){
+        instrucciones.classList.remove('instrucciones');
+        instrucciones.classList.add('activo');
+    } else {
+        instrucciones.classList.remove('activo');
+        instrucciones.classList.add('instrucciones');
+    }
+ 
+})
 
 
 function calculoPrecio() {
@@ -73,7 +106,7 @@ function calculoPrecio() {
     var Precio;
 
     Precio = (var1/(100-var2-var3))*100;
-    PrecioTotal.textContent = `El pecio que te recomendamos para tu producto y/o Servios es: ${Precio.toFixed(2)}`;
+    PrecioTotal.textContent = `El precio que te recomendamos para tu producto y/o servicios es: ${Precio.toFixed(2)}`;
     PrecioTotal.classList.add('precio-final');
     
     Bloco.appendChild(PrecioTotal);
