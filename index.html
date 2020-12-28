@@ -3,175 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-size: large;
-
-}
-body {
-    background-color: rgb(187, 241, 223);
-    padding: 30px;
-    display: block;
-    }
-
-h1 {
-font-size: 25px;
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-div {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-
-p {
-    text-align: justify;
-}
-button {
-    width: 100px;
-    padding: 5px;
-    margin: 10px;
-}
-img {
-    align-items:center;
-    max-width: 200px;
-    height: 150px;
-    padding: 20px;
-}
-
-#bloco1, #bloco2 {
-    display: flex;
-    flex-direction: column;
-}
-#bloco3 {
-    display: flex;
-    flex-direction: row;
-
-}
-#btn1, #btn2, #btn3 {
-    display: inline-block;
-    max-width: 200px;
-    padding: 2.5px;
-    margin: 5px;
-}
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <title>API FINACIERO</title>
 </head>
 <body>
-    <header>
-        <h1>Esto es una prueba</h1>
-        <input type="text" />
-        <button type="submit">Submit</button>
-    </header>
-    <body>
-        <p>Esto es una prueba de DOM</p>
-        <div id="bloco1">
-            <p id="uno">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas laborum iste nostrum molestias earum? Harum repellat expedita aperiam quisquam ipsam? Dolorem ab id accusamus quasi voluptate, pariatur quos at expedita.
-            </p>
-            <p id="msg">
-                Esto es una prueba aqui de como voy a utilizar DOM 
-            </p>
-            <div id="msg2">CLICKAME AQUI</div>
-            <div id="bloco2">
-            <img id="ven" src="https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg" alt="bandera de venezuela">
-            <img id="bras" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/300px-Flag_of_Brazil.svg.png" alt="bandera de venezuela">
-            <img id="ger" src="https://banderade.net/wp-content/uploads/2018/05/bandera-de-alemania.jpg" alt="bandera de venezuela">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-white" href="#">JAAG | WEBSERVICES</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active text-white" href="https://api.whatsapp.com/send?phone=5511972434963&fbclid=IwAR1HGuBzCNr-aSBtkW_uCjDLKdsL7Nfce6nfrB_HkOOJrfgSFQlhIELy_qI">Contactame<span class="sr-only">(current)</span></a>
+            <!-- <a class="nav-link text-white" href="#">Features</a> -->
+            <a class="nav-link text-white" href="#">Servicios</a>
+            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+          </div>
+        </div>
+      </nav>
+</header>
+<main>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div id="app-Precio" class="card" style="width: 18rem;">
+                        <img src="./assets/img/1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Calculo de Precio</h5>
+                          <p class="card-text">Realiza estimaciones de precios de venta para tus articulso con algunas simples preguntas y algunas consideraciones.</p>
+                          <a target="_self" href="./Formulador de Precio/index.html" class="btn btn-primary">CALCULAR</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-md-4">
+                    <div id="app-Simulador" class="card" style="width: 18rem;">
+                        <img src="./assets/img/2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Amortizador</h5>
+                          <p class="card-text">Determina las cuotas mensuales a pagar para tus condiciones actuales para negociar con las empresa de préstamos.</p>
+                          <a target="_self" href="./TABLA DE AMORTIZACION/Index.html" class="btn btn-primary">CALCULAR</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-md-2"></div>
             </div>
-
-            <div id="bloco3">
-            <button id="btn1" type="text">Prueba uno</button>
-            <button id="btn2" type="text">Prueba dos</button>
-            <button id="btn3" type="text">Prueba tres</button>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div id="app-Calculadora" class="card" style="width: 18rem;">
+                        <img src="./assets/img/3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Calculadora</h5>
+                          <p class="card-text">Realiza calculos básicos de las operaciones simples para estimar los valores de pagos y realizar algunas cuentas dentro de un mismo aplicativo. Te ayuda a sumar, restar, multiplicar y dividir.</p>
+                          <a  target="_self" href="./Calculadora/calculadora.html" class="btn btn-primary">APLICAR</a>
+                    </div>
+                </div>    
+                </div>
+                <div class="col-md-4">
+                    <div id="app-ListaToDo" class="card" style="width: 18rem;">
+                        <img src="./assets/img/4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Lista de Tareas</h5>
+                          <p class="card-text">Utiliza este aplicativo que deja grabado todas las actividades que tienes pendientes hasta que las termines. Cada vez que abras tu ventada en tu PC esas actividades pendientes van a estar ahi.</p>
+                          <a target="_self" href="./TodoList/todolist.html" class="btn btn-primary">ANOTAR</a>
+                    </div>
+                </div>       
+                </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
+<br><br>
+<footer class="d-flex vw-100 fixed-bottom bg-dark justify-content-center">
+<section class="justify-content">
+<a target="_blank" href="https://api.whatsapp.com/send?phone=5511972434963&fbclid=IwAR1HGuBzCNr-aSBtkW_uCjDLKdsL7Nfce6nfrB_HkOOJrfgSFQlhIELy_qI">Whatsapp</a> |
+<a target="_blank" href="mailto: jesusalejandro225@hotmail.com">Email</a> |
+<a target="_blank" href="www.gitthub.com/Jesus758">Github</a>
+</section>
 
-    </body>
-        
-   <script> 
-    var parrafo1 = window.document.getElementById('uno');
-    parrafo1.setAttribute('style', 'border: 1px solid red; border-radius: 10px; padding:5px;');
+</footer>
 
-    var boton = window.document.createElement('button');
-    var textoBtn = window.document.createTextNode('Clickame Aqui!');
-    boton.appendChild(textoBtn);
-    const btnNuevo = window.document.getElementById('msg2');
-    btnNuevo.appendChild(boton); 
-    //para abrir una nueva ventana
 
-    const abrirJanela = () => {
-    let novaJanela = window.open('','', 'width=350px, height=600px, top=200px, left=200px');
-    novaJanela.document.write(`
-    <style>
-    body { background: gray;
-            color: black;
-            }
-    img {
-        width: 150px;
-        height: 150px;
-    }
-    </style>
-    <body>
-    <div style="display: flex; flex-direction: column;">
-    <h1> VENEZUELA </h1>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/1200px-Flag_of_Venezuela.svg.png" alt="venezuela">
-    <p>
-        Venezuela is a country on the northern coast of South America with diverse natural attractions. Along its Caribbean coast are tropical resort islands including Isla de Margarita and the Los Roques archipelago. To the northwest are the Andes Mountains and the colonial town of Mérida, a base for visiting Sierra Nevada National Park. Caracas, the capital, is to the north.
-        Currencies: Venezuelan bolívar, Petro Trending
-        Capital: Caracas
-        Date format: dd/mm/yyyy (CE)
-        Driving side: right
-        GDP (PPP): 2019 estimate
-        Population: 28.87 million (2018) World Bank
-    </p>
-    </div>
-    </body>
-    `);
-    }
-    window.document.getElementById('ven').onclick = () => { abrirJanela() }
-    //timer
-    const nuevo = window.document.createElement('div');
-    Tiempo = prompt('escriba un tiempo');
-    nuevo.innerHTML = `${Tiempo}`;
-    cuerpo = window.document.querySelector('#bloco3');
-    cuerpo.appendChild(nuevo);
-    nuevo.setAttribute('id','timer');
-    const estiloTimer = window.document.querySelector('#timer');
-    estiloTimer.setAttribute('style','font-size: 35px; border: 1px solid red; background: gray; min-width: 100px; height: auto; text-align: center;');
-    estiloTimer.classList.add('d-flex');
 
-    var pausarTimer = document.createElement('button')
-    var pausarTimerTxt = document.createTextNode('PAUSAR')
-    pausarTimer.appendChild(pausarTimerTxt)
-    pausarTimer.setAttribute('class', 'btn btn-danger mx-auto')
-    pausarTimer.setAttribute('id', 'pausarTimerBtn')
-// Já vamos atrelar a função que pausará o time num atributo
-    pausarTimer.setAttribute('onclick', 'pausarTimerAgora()')
-    document.querySelector('#bloco3').appendChild(pausarTimer)
-   
-    tempo = Tiempo
-    rodar = setInterval(() => {
-    timer.innerHTML = tempo--
-    if ( tempo < 0 ) {
-    clearInterval(rodar)
-    timer.classList.add('text-white')
-    timer.classList.remove('text-danger')
-    timer.innerText = 'TEMPO ESGOTADO!'
-    btnPauseContainer.remove()
-    document.querySelector('#timerContainer').classList.add('bg-danger')
-    document.querySelector('#timerContainer').classList.remove('bg-warning')
-    } else if ( tempo < 5 ) {
-    timer.classList.add('text-danger')
-    timer.classList.remove('text-white')
-    document.querySelector('#timer').classList.add('bg-warning')
-    document.querySelector('#timer').classList.remove('bg-info')
-    }
-    }, 1000)
+</main>
 
-    function pausarTimerAgora() { clearInterval(rodar) }
-
-    </script>
-   </body>
+    
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
 </html>
