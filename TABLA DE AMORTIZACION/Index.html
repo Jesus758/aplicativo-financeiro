@@ -42,7 +42,18 @@
 
 <div id="HowToUse" class="active">
 <p>
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam voluptatem natus laborum mollitia, eius debitis suscipit qui error, adipisci corporis numquam aspernatur labore hic, esse explicabo reprehenderit cumque quo beatae.
+  <span><h3><b>Introduccion</b></h3></span>
+  <br>
+  Este API eta diseñado para la realidad brasilera, es decir, considera condiciones socioeconomicas de los trabajadores Brasileros, como personas bajo contratos de trabajo y personas autonomos.
+  Sin embargo, puede ser adaptado para cualquier pais, segun su realidad y las condiciones socioeconomicas de la clase trabajadora.
+</p>
+
+<p>
+  <span><h3><b>Calculo del Nivel de Riesgo Financiero</b></h3></span>
+  Fue tomado como criterio algunas consideraciones que actualmente se realizan en Brasil. Por ejemplo, establecer valores de tasas de credito entre 25% la mas baja hasta 75% cuando se es una persona de alto riesgo para 
+  la entidad financiera.
+  El programa determina, bajo esos criterios, cuales son las condiciones de Riesgos que presenta un solicitante ante los bancos, asi como los valores de pago mensual que debe realizar.
+  
 </p>
 </div>
     <!-- <div class="header">
@@ -127,6 +138,9 @@ var valorPagar;
 var valorPedido = document.getElementById('monto');
 var btnInstruccion = document.querySelector('#fotoInstrucciones');
 var blocoInst = document.querySelector('#HowToUse');
+
+
+const formulario = document.querySelector('#form01');
 
 
 
@@ -281,19 +295,35 @@ for (var i=0; i < periodo; i++) {
 //return valorAdeudado; //aqui debe retornar uma tabela.
 }
 
+function limpiarHTML () {
+  
+  if (emptybox.firstChild) {
+        emptybox.innerHTML = '';
+  }
+  
+
+}
 
 // Listener para o font-end
 
 boton.addEventListener("click", () => {
+    
+    limpiarHTML();
+    
     rangeSal();
     tipoT();
     let uno = riesgo(rangeSal(), tipoT()); // Esra funcion genera la variable RiesgoPer
     
+
+    
+
     const info1 = document.createElement('h2');
     info1.innerText = `Su nivel de Riesgo es ${uno}`
     emptybox.appendChild(info1);
     let dos = valoraPagar(valorPedido.value, uno, periodo.value);
    
+    
+
     const info2 = document.createElement('h2');
     info2.innerText = `El monto total a pagar que le corresponde es ${dos}`
     emptybox.appendChild(info2);
@@ -301,7 +331,9 @@ boton.addEventListener("click", () => {
     let Matriz = tablaAmortizacion(dos, periodo.value);
     console.log(Matriz[1].Cuota);
     console.log(Matriz.length);
-   
+
+    
+
     const infoTabla = document.createElement('tr');
       infoTabla.innerHTML += `
       <th>No Cuota</th>
@@ -310,6 +342,8 @@ boton.addEventListener("click", () => {
       <th>Valor de Deuda Restante (R$) </th> 
       `;
       emptybox.appendChild(infoTabla);
+
+    
 
     Matriz.forEach( parcelado => {
       
@@ -322,12 +356,25 @@ boton.addEventListener("click", () => {
       `
       emptybox.appendChild(info3);
     });
+
+    formulario.reset();
 });
+
+
 
 btnInstruccion.onclick = () => {
   
+  if (blocoInst.classList.contains('inicial')) {
+      blocoInst.classList.remove('inicial');
+      blocoInst.classList.add('active');
+      return;
+  } else {
       blocoInst.classList.remove('active');
       blocoInst.classList.add('inicial');
+
+  }    
+  
+  
     
    
     //blocoInst.classList.remove('inicial');

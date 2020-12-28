@@ -60,8 +60,12 @@ th {
 }
 
 #HowToUse.inicial {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;;
+    position: absolute;
     width: 300px;
     border: 1px solid black;
+    text-align: center;
 }
 
 .active {
@@ -76,4 +80,19 @@ img {
     height: 50px;
     background: rgb(219, 200, 200);
     border-radius: 50%;
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+.container-fluid {
+    margin-left: 0px;
+}
+
+#HowToUse.inicial {
+    background-color: #ffffff; 
+    border-radius: 15px;;
+}
+
+
 }

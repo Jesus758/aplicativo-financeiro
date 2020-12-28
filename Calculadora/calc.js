@@ -1,3 +1,5 @@
+//window.open(" "," ","widht=500; height = 1000");
+
 var operandoa;
 var operandob;
 var operacion;
